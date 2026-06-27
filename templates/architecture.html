@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Architecture | SDXL Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">✨ SDXL Studio</div>
+    <a href="/" class="back-btn">← Back</a>
+</nav>
+
+<section class="architecture-page">
+
+    <h1 class="architecture-title">System Architecture</h1>
+
+    <!-- 1 -->
+    <div class="architecture-card">
+        <h2>1. Text Conditioning (CLIP Encoder)</h2>
+        <p>
+            User prompt is encoded into semantic embeddings using a frozen CLIP text encoder.
+            These embeddings guide the denoising U-Net via cross-attention.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch1.png') }}">
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="architecture-card">
+        <h2>2. Forward Diffusion Process</h2>
+        <p>
+            Gaussian noise is gradually added to training images across timesteps,
+            enabling the model to learn structured-to-noise transitions.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch2.png') }}">
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="architecture-card">
+        <h2>3. Reverse Diffusion (Denoising)</h2>
+        <p>
+            Starting from random Gaussian noise, the U-Net progressively removes noise
+            to reconstruct meaningful visual structure.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch3.png') }}">
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="architecture-card">
+        <h2>4. Latent Space Representation</h2>
+        <p>
+            SDXL operates in compressed latent space using a VAE encoder,
+            dramatically improving computational efficiency.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch4.png') }}">
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="architecture-card">
+        <h2>5. Text-Conditioned U-Net</h2>
+        <p>
+            Encoder-decoder architecture with skip connections and cross-attention layers
+            inject prompt embeddings at multiple stages.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch5.png') }}">
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="architecture-card">
+        <h2>6. Current Model Architecture</h2>
+        <p>
+            The SDXL Base model generates global composition, lighting, and layout.
+            It focuses on macro-level structure before refinement.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch6.png') }}">
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="architecture-card">
+        <h2>7. Refiner Model Enhancement</h2>
+        <p>
+            The Refiner model operates during later denoising steps to enhance
+            textures, edges, shadows, and realism for high-resolution fidelity.
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch7.png') }}">
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="architecture-card">
+        <h2>8. VAE Decoder Output</h2>
+        <p>
+            After denoising completes in latent space, the VAE decoder reconstructs
+            the latent representation into a full-resolution image (e.g., 1024×1024).
+        </p>
+        <div class="architecture-image-wrapper">
+            <img src="{{ url_for('static', filename='images/arch8.png') }}">
+        </div>
+    </div>
+
+    <!-- COMPLETE WORKFLOW -->
+    <div class="workflow-card">
+        <h2>Complete Workflow</h2>
+
+        <div class="workflow-flow">
+            <div class="flow-step">Prompt</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">CLIP Encoder</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">Text Embeddings</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">Noise Scheduler</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">U-Net</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">Base Model</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">Refiner Model</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step">VAE Decoder</div>
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-step final">Final Image</div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SDXL Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="logo">✨ SDXL Studio</div>
+
+    <ul class="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="/generate">Generate</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="/architecture">Architecture</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+
+    <a href="/generate" class="nav-btn">✨ Generate Images</a>
+</nav>
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero" id="hero">
+
+    <div class="badge">● Powered by Stable Diffusion XL</div>
+
+    <h1>
+        Turn Text Into 
+        <span class="gradient-text">Stunning</span><br>
+        AI Images
+    </h1>
+
+    <p>
+        Harness the power of SDXL to generate photorealistic,
+        high-resolution images from simple text prompts.
+        Fast, accurate, and endlessly creative.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="/generate" class="primary-btn">✨ Start Generating →</a>
+        <a href="#how-it-works" class="secondary-btn">See How It Works →</a>
+    </div>
+
+    <div class="stats">
+        <div>
+            <h3>1024²</h3>
+            <span>Max Resolution</span>
+        </div>
+        <div>
+            <h3>&lt;3s</h3>
+            <span>Generation Time</span>
+        </div>
+        <div>
+            <h3>99.7%</h3>
+            <span>Uptime</span>
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= FEATURES SECTION ================= -->
+<section class="features" id="features">
+
+    <h2 class="section-title">Built for Creators</h2>
+    <p class="section-subtitle">
+        Every detail engineered for speed, quality, and creative freedom.
+    </p>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div class="icon-box">🖼</div>
+            <h3>High-Resolution Output</h3>
+            <p>
+                Generate images up to 1024×1024 with exceptional detail and clarity.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-box">🎯</div>
+            <h3>Prompt Accuracy</h3>
+            <p>
+                Advanced CLIP-based understanding ensures your vision is precise.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-box">⚡</div>
+            <h3>GPU Acceleration</h3>
+            <p>
+                Enterprise-grade infrastructure delivers blazing-fast generation.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon-box">🚀</div>
+            <h3>Fast Generation</h3>
+            <p>
+                From prompt to image in under 3 seconds.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= GALLERY SECTION ================= -->
+<section class="gallery-section" id="gallery">
+
+    <h2 class="section-title">AI Generated Gallery</h2>
+    <p class="section-subtitle">
+        Hover over an image to reveal the prompt used.
+    </p>
+
+    <div class="gallery-grid">
+
+        <!-- 1 -->
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{ url_for('static', filename='images/img1.jpg') }}">
+                </div>
+                <div class="flip-back">
+                    <span class="category">NATURE</span>
+                    <p>Coastal cliffs and sandy beach beside a blue ocean under a clear sky.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2 -->
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{ url_for('static', filename='images/img2.jpg') }}">
+                </div>
+                <div class="flip-back">
+                    <span class="category">PORTRAIT</span>
+                    <p>Golden Gate Bridge seen from a sandy beach.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{ url_for('static', filename='images/img3.jpg') }}">
+                </div>
+                <div class="flip-back">
+                    <span class="category">ARCHITECTURE</span>
+                    <p>A gray wolf standing in a forest.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{ url_for('static', filename='images/img4.jpg') }}">
+                </div>
+                <div class="flip-back">
+                    <span class="category">FOREST</span>
+                    <p>Old window with a green forest outside.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{ url_for('static', filename='images/img5.jpg') }}">
+                </div>
+                <div class="flip-back">
+                    <span class="category">URBAN</span>
+                    <p>Person walking on a wooden path in a forest.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="{{ url_for('static', filename='images/img6.jpg') }}">
+                </div>
+                <div class="flip-back">
+                    <span class="category">PRODUCT</span>
+                    <p>Aerial view of the Golden Gate Bridge over the ocean.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <div class="gallery-cta">
+        <a href="/generate" class="create-btn">
+            ✨ Create Your Own
+        </a>
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how-section" id="how-it-works">
+
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">
+        Three simple steps from idea to stunning image.
+    </p>
+
+    <div class="how-steps">
+
+        <div class="step">
+            <div class="step-icon">✏️</div>
+            <span class="step-number">01</span>
+            <h3>Enter Your Prompt</h3>
+            <p>
+                Describe the image you envision. Be as detailed or abstract as you like.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-icon">⚙️</div>
+            <span class="step-number">02</span>
+            <h3>Choose Style & Resolution</h3>
+            <p>
+                Select from cinematic, anime, photorealistic and more.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-icon">🖼</div>
+            <span class="step-number">03</span>
+            <h3>Generate & Download</h3>
+            <p>
+                Click generate and download your image in full quality.
+            </p>
+        </div>
+
+    </div>
+
+<!-- ================= FINAL CTA SECTION ================= -->
+<section class="cta-section">
+
+    <div class="cta-card">
+        <h2>Ready to Create?</h2>
+
+        <p>
+            Join thousands of creators generating stunning AI
+            images every day. No credit card required.
+        </p>
+
+        <a href="/generate" class="cta-btn">
+            ✨ Start Generating →
+        </a>
+    </div>
+
+</section>
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-logo">✨ SDXL Studio</div>
+    <p>© 2026 SDXL Studio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

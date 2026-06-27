@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">✨ SDXL Studio</div>
+    <a href="/" class="back-btn">← Back</a>
+</nav>
+
+<section class="generate-wrapper">
+
+    <!-- LEFT PANEL -->
+    <div class="control-panel">
+
+        <h2>Generate Image</h2>
+
+        <!-- Prompt -->
+        <div class="prompt-container">
+
+        <textarea 
+            id="prompt"
+            placeholder="Describe the image..."
+        ></textarea>
+
+        <div id="recommendations" class="recommendations-box"></div>
+
+        </div>
+
+        <!-- Resolution -->
+        <div class="option-group">
+            <label>Resolution</label>
+            <div class="options">
+                <button class="option active">Default</button>
+                <button class="option">512×512</button>
+                <button class="option">768×768</button>
+                <button class="option">1024×1024</button>
+                <button class="option">1280×1280</button>
+                <button class="option">1536×1536</button>
+                <button class="option">2048×2048</button>
+            </div>
+        </div>
+
+        <!-- Layout -->
+        <div class="option-group">
+            <label>Layout</label>
+            <div class="options">
+                <button class="option active">Default</button>
+                <button class="option">Square</button>
+                <button class="option">Portrait</button>
+                <button class="option">Landscape</button>
+                <button class="option">Cinematic</button>
+                <button class="option">Wide</button>
+                <button class="option">Ultra-Wide</button>
+                <button class="option">Panorama</button>
+            </div>
+        </div>
+
+        <!-- Image Type -->
+        <div class="option-group">
+            <label>Image Type</label>
+            <div class="options">
+                <button class="option active">Default</button>
+                <button class="option">Avatar</button>
+                <button class="option">Photorealistic</button>
+                <button class="option">AI Art</button>
+                <button class="option">Anime</button>
+                <button class="option">Cyberpunk</button>
+                <button class="option">Fantasy Art</button>
+                <button class="option">Watercolor</button>
+                <button class="option">Oil Painting</button>
+                <button class="option">Sketch</button>
+                <button class="option">3D Render</button>
+                <button class="option">Pixar Style</button>
+                <button class="option">Studio Ghibli</button>
+                <button class="option">Minimalist</button>
+                <button class="option">Concept Art</button>
+                <button class="option">Surrealism</button>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="action-buttons">
+            <button id="generateBtn" class="generate-btn" onclick="generateImage()">
+                ✨ Generate
+            </button>
+            <button class="clear-btn" onclick="clearAll()">
+                ↺ Clear
+            </button>
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="preview-panel">
+        <h2>Preview</h2>
+
+        <div class="preview-box">
+            <img id="output" />
+            <div id="placeholder">
+                <div class="icon">🖼</div>
+                <p>Your generated image will appear here</p>
+            </div>
+        </div>
+
+        <!-- Loader -->
+        <div id="loader" class="loader" style="display:none;">
+            <div class="spinner"></div>
+            <p>Generating your masterpiece...</p>
+        </div>
+
+        <div class="recent-container">
+            <h3>🕒 Generation History</h3>
+            <div id="historyList" class="history-list"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
